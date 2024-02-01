@@ -1,5 +1,5 @@
 import React from 'react';
-import { uploadFileToBlob } from './YourFile';  // Import the function
+import { uploadFileToBlob } from './uploadToBlobStorage.js';
 
 const MyComponent = () => {
   const handleSaveToBlob = async () => {
