@@ -1,18 +1,18 @@
 import { BlobServiceClient } from '@azure/storage-blob';
 
 const uploadFileToBlob = async (file) => {
-  const connectionString = 'DefaultEndpointsProtocol=https;AccountName=matchanalyticscvtest;AccountKey=otrKdAPEaQYnPadYwe5mybWlcEIe68rE+MUbbkrFLr2dVfB+ttC3P4m/RcP+J5mb7T1xDexZcO7z+AStEmdLNg==;EndpointSuffix=core.windows.net';
+  const connectionString = 'DefaultEndpointsProtocol=https;AccountName=matchanalyticscvtest;AccountKey=otrKdAPEaQYnPadYwe5mybWlcEIe68rE+MUbbkrFLr2dVfB+ttC3P4m/RcP+J5mb7T1xDexZcO7z+AStEmdLNg==;EndpointSuffix=core.windows.net'; // Add your Azure Storage connection string
   const containerName = 'testjson';
   const blobName = 'wannestest.json';
-  
+
   const blobServiceClient = await BlobServiceClient.fromConnectionString(connectionString);
   const containerClient = blobServiceClient.getContainerClient(containerName);
   const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-  
+
   try {
-    // Read the file content
+    // Read the file content as a Uint8Array
     const fileContent = await readFileAsync(file);
-  
+
     // Upload the file content to Azure Blob Storage
     await blockBlobClient.upload(fileContent, fileContent.length);
     console.log('File uploaded successfully to Azure Blob Storage!');
@@ -21,13 +21,16 @@ const uploadFileToBlob = async (file) => {
     throw error;
   }
 };
-  
-// Helper function to read file asynchronously
+
+// Helper function to read file asynchronously and convert to Uint8Array
 const readFileAsync = (file) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = (event) => {
-      resolve(event.target.result);
+      // Convert the result to Uint8Array
+      const arrayBuffer = event.target.result;
+      const uint8Array = new Uint8Array(arrayBuffer);
+      resolve(uint8Array);
     };
     reader.onerror = (error) => {
       reject(error);
@@ -35,5 +38,5 @@ const readFileAsync = (file) => {
     reader.readAsArrayBuffer(file);
   });
 };
-  
+
 export { uploadFileToBlob };
