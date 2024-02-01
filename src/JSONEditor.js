@@ -29,6 +29,7 @@ const JSONEditor = () => {
   return (
     <div>
       <h2>JSON Editor</h2>
+
       <div>
         {Object.keys(jsonData).map((key) => (
           <div key={key}>
