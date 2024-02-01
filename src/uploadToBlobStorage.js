@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const uploadFileToBlob = async (filePath) => {
-  const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
+  const connectionString = process.env.local.AZURE_STORAGE_CONNECTION_STRING;
   const containerName = 'testjson';
   const blobName = 'wannestest.json';
 
