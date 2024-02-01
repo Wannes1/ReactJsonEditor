@@ -7,10 +7,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Hello !!
-        </p>
-        {/* Render the JSONEditor component */}
         <JSONEditor />
         <MyComponent />
       </header>
