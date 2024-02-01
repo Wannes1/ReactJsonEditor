@@ -1,10 +1,10 @@
+import { BlobServiceClient } from '@azure/storage-blob';
+import fs from 'fs';
+
 // Load environment variables from .env file in development
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-
-import { BlobServiceClient } from '@azure/storage-blob';
-import fs from 'fs';
 
 const uploadFileToBlob = async (filePath) => {
   const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
