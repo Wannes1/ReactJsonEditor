@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Hello World!!
+          Hello !!
         </p>
         {/* Render the JSONEditor component */}
         <JSONEditor />
