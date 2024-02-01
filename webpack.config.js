@@ -8,9 +8,6 @@ module.exports = {
           "crypto": require.resolve("crypto-browserify")
         }
       },
-      node: {
-        fs: 'empty',
-      },
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',

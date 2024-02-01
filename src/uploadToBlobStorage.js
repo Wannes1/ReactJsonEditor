@@ -1,13 +1,13 @@
 import { BlobServiceClient } from '@azure/storage-blob';
-import fs from 'fs';
+// import fs from 'fs';
 
-// Load environment variables from .env file in development
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+// // Load environment variables from .env file in development
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config();
+// }
 
 const uploadFileToBlob = async (filePath) => {
-  const connectionString = process.env.local.AZURE_STORAGE_CONNECTION_STRING;
+  const connectionString = 'DefaultEndpointsProtocol=https;AccountName=matchanalyticscvtest;AccountKey=otrKdAPEaQYnPadYwe5mybWlcEIe68rE+MUbbkrFLr2dVfB+ttC3P4m/RcP+J5mb7T1xDexZcO7z+AStEmdLNg==;EndpointSuffix=core.windows.net';
   const containerName = 'testjson';
   const blobName = 'wannestest.json';
 
