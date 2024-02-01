@@ -1,5 +1,4 @@
 import { BlobServiceClient } from '@azure/storage-blob';
-import fs from 'fs';
 
 // Load environment variables from .env file in development
 if (process.env.NODE_ENV !== 'production') {
@@ -16,8 +15,6 @@ const uploadFileToBlob = async (filePath) => {
   const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
   try {
-    // Read the file content
-    const data = fs.readFileSync(filePath, 'utf-8');
     // Upload the file content to Azure Blob Storage
     await blockBlobClient.upload(data, data.length);
     console.log('File uploaded successfully to Azure Blob Storage!');
