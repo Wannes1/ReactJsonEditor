@@ -12,7 +12,7 @@ const containerName = 'testjson';
 const blobName = 'wannestest.json';
 
 // Path to your local JSON file
-const localFilePath = "C:\Users\hermawa\OneDrive - Cronos\Bureaublad\wannes.json";
+const localFilePath = "C:\\Users\\hermawa\\OneDrive - Cronos\\Bureaublad\\wannes.json";
 
 async function uploadFileToBlob() {
   const blobServiceClient = await BlobServiceClient.fromConnectionString(connectionString);
