@@ -1,7 +1,7 @@
 import { BlobServiceClient } from '@azure/storage-blob';
 
 const uploadFileToBlob = async (file) => {
-  const connectionString = 'DefaultEndpointsProtocol=https;AccountName=matchanalyticscvtest;AccountKey=otrKdAPEaQYnPadYwe5mybWlcEIe68rE+MUbbkrFLr2dVfB+ttC3P4m/RcP+J5mb7T1xDexZcO7z+AStEmdLNg==;EndpointSuffix=core.windows.net'; // Add your Azure Storage connection string
+  const connectionString = ''; // Add your Azure Storage connection string
   const containerName = 'testjson';
   const blobName = 'wannestest.json';
 
